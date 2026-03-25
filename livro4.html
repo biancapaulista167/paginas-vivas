@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa Culpa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="produto-individual">
+    <header>
+        <div class="brand">
+            <a href="index.html">
+                <img src="img/logo.jpg.jpeg">
+            </a>
+            <div class="titulo-slogan">
+                <a href="index.html">
+                    <h1>Páginas Vivas</h1>
+                </a>
+                <p>Livros que ganham vida</p>
+            </div>
+            <button id="themeToggle" class="toggle" title="Alternar modo claro/escuro">🌙</button>
+            <div class="cart-btn" id="openCart" title="Abrir carrinho">
+            🛒 <span class="pill" id="cartCount">0</span>
+        </div>
+    </header>    
+    <main class="produto">
+        <section id="produtos">
+            <img src="img/livro.jpg">
+            <div class="descricao-livro">
+                <h2>Você ligou para o Sam</h2>
+                <hr>
+                <h3>O que você precisa saber sobre este produto!</h3>
+                <p>Ano de publicação: 2022.</p>
+                <p>Capa do Livro: Mole</p>
+                <p>Gênero: ficção contemporânea juvenil</p>
+                <p>Número de páginas:336</p>
+                <p>Idade mínima recomendada: 18 anos</p>
+                <p>Peso: 400g</p>
+                <p>ISBN: 9786588131459.</p>
+            </div>
+            <div class="comprar">
+                <input id="qtd" type="number" min="1" max="9" required>
+                <p>R$ <span id="preco">55.90</span></p>
+                <button id="addToCart">Comprar!</button>
+            </div>
+        </section>
+    </main>
+    <div id="carrinhoLateral" class="carrinho">
+        <div id="conteudoCarrinho"></div>
+        <p class="total">Total: R$ <span id="totalCarrinho">0.00</span></p>
+        <button id="finalizarCompra" class="btn-finalizar">Finalizar Compra</button>
+    </div>
+    <footer>
+
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Páginas Vivas — Loja Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <header>
+        <div class="brand">
+            <a href="index.html">
+                <img src="img/logo.jpg.jpeg">
+            </a>
+            <div class="titulo-slogan">
+                <a href="index.html">
+                    <h1>Páginas Vivas</h1>
+                </a>
+                <p>Livros que ganham vida</p>
+            </div>
+            <button id="themeToggle" class="toggle" title="Alternar modo claro/escuro">🌙</button>
+            <div class="cart-btn" id="openCart" title="Abrir carrinho">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
+                    <path d="M6 6h15l-1.5 9h-12z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                    <circle cx="9" cy="20" r="1" fill="currentColor"></circle>
+                    <circle cx="18" cy="20" r="1" fill="currentColor"></circle>
+                </svg>
+                <div class="pill" id="cartCount">0</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="produto">
+        <section id="produtos">
+            <div class="produto">
+                <a href="livro1.html">
+                    <img height="600" width="450" src="img/minha culpa.jpg">
+                    <div>
+                        <h2>Minha Culpa</h2>
+                        <p>
+                            R$58,89
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <hr>
+            <div class="produto">
+                <a href="livro2.html">
+                    <img height="600" width="450" src="img/sua culpa.jpg">
+                    <div>
+                        <h2>Sua Culpa</h2>
+                        <p>
+                            R$44,90
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <hr>
+
+            <div class="produto">
+                <a href="livro3.html">
+                    <img height="600" width="450" src="img/culpa nossa.png">
+                </a>
+                <div>
+                    <h2>Nossa Culpa</h2>
+                    <p>
+                        R$63,90
+                    </p>
+                </div>
+            </div>
+            <hr>
+
+            <div class="produto">
+                <a href="livro4.html">
+                    <img height="600" width="450" src="img/livro.jpg">
+                </a>
+                <div>
+                    <h2>Você ligou para o Sam</h2>
+                    <p>
+                        R$55,90
+                    </p>
+                </div>
+            </div>
+            <hr>
+
+            <div class="produto">
+                <a href="livro5.html">
+                    <img height="600" width="450" src="img/comeca.png">
+                </a>
+                <div>
+                    <h2>É assim que começa</h2>
+                    <p>
+                        R$39,90
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="produto">
+                <a href="livro6.html">
+                    <img height="600" width="450" src="img/A cinco passos de você.jpg">
+                </a>
+                <div>
+                    <h2>A Cinco Passos de Você</h2>
+                    <p>
+                        R$44,90
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="produto">
+                <a href="livro7.html">
+                    <img height="600" width="450" src="img/cor verde.jpg">
+                </a>
+                <div>
+                    <h2>Kindle</h2>
+                    <p>
+                        R$600,00
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <hr>
+    <h1>Entrar</h1>
+    <form class="form" action="" method="GET">
+        <p>Email:
+            <input id="email" type="text" autocomplete="off" class="email" required>
+        </p>
+        <p>Senha:
+            <input id="senha" type="text" autocomplete="off" class="senha" required>
+        </p>
+        <button>Entrar</button>
+    </form>
+    <div class="resultado"></div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

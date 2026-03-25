@@ -1,0 +1,209 @@
+/* Fonte moderna */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+/* ===== VARIÁVEIS DE TEMA ===== */
+:root {
+  --bg: #f6f7fb;
+  --card: powderblue;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --accent: #6b5ce7;
+  --shadow: 0 6px 20px rgba(31, 41, 55, 0.08);
+}
+
+.dark {
+  --bg: #0b1020;
+  --card: rgb(0, 80, 91);
+  --text: #e6eef8;
+  --muted: #94a3b8;
+  --accent: #8b7df0;
+  --shadow: 0 8px 30px rgba(2, 6, 23, 0.7);
+}
+
+/* ===== RESET ===== */
+body {
+  font-family: "Manrope", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ===== CABEÇALHO / LOGO ===== */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 24px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.brand img {
+  width: 70px;
+  border-radius: 10px;
+}
+
+.titulo-slogan a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ===== BOTÕES ===== */
+button {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  transition: .2s;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+button:hover {
+  opacity: .8;
+}
+
+/* ===== ÁREA PRINCIPAL ===== */
+main {
+  padding: 20px;
+}
+
+.produto a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* ===== CARD LIVRO ===== */
+.livro {
+  background: var(--card);
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 300px;
+  margin: 25px auto;
+  box-shadow: var(--shadow);
+}
+
+/* ===== PRODUTO INDIVIDUAL ===== */
+.produto-individual #produtos {
+  background: var(--card);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+  box-shadow: var(--shadow);
+}
+
+.produto-individual #produtos img,
+.produto-individual #produtos .descricao-livro,
+.produto-individual #produtos .compra {
+  width: 30%;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .produto-individual #produtos {
+    flex-direction: column;
+  }
+
+  .produto-individual #produtos img,
+  .produto-individual #produtos .descricao-livro,
+  .produto-individual #produtos .compra {
+    width: 100%;
+  }
+}
+
+/* ===== CARRINHO LATERAL SIMPLES ===== */
+#carrinho {
+  width: 260px;
+  background: var(--card);
+  color: var(--text);
+  padding: 15px;
+  border-radius: 12px;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  box-shadow: var(--shadow);
+}
+
+/* botão carrinho */
+.cart-btn {
+  cursor: pointer;
+  padding: 10px;
+  font-size: 20px;
+  position: relative;
+}
+
+.pill {
+  background: red;
+  color: #1cc1db;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  position: absolute;
+  top: 0;
+  right: -10px;
+}
+
+/* Carrinho lateral */
+.carrinho {
+  position: fixed;
+  right: -350px;
+  top: 0;
+  width: 300px;
+  background: var(--card);
+  color: var(--text);
+  border-left: 2px solid var(--muted);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+}
+
+.carrinho.ativo {
+  right: 0;
+}
+
+/* Botão fechar carrinho */
+.fechar {
+  background: crimson;
+  color: #16cacee6;
+  border: none;
+  font-size: 18px;
+  padding: 5px 10px;
+  cursor: pointer;
+  align-self: flex-end;
+  border-radius: 6px;
+}
+
+/* Total do carrinho */
+.total {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: auto;
+  color: var(--text);
+}
+
+/* Botão finalizar compra */
+.btn-finalizar {
+  background: var(--accent);
+  color: var(--card);
+  width: 100%;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: 15px;
+  transition: 0.2s;
+}
+
+.btn-finalizar:hover {
+  opacity: 0.8;
+}

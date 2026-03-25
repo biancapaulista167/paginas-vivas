@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa Culpa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="produto-individual">
+    <header>
+        <div class="brand">
+            <a href="index.html">
+                <img src="img/logo.jpg.jpeg">
+            </a>
+            <div class="titulo-slogan">
+                <a href="index.html">
+                    <h1>Páginas Vivas</h1>
+                </a>
+                <p>Livros que ganham vida</p>
+            </div>
+            <button id="themeToggle" class="toggle" title="Alternar modo claro/escuro">🌙</button>
+            <div class="cart-btn" id="openCart" title="Abrir carrinho">
+            🛒 <span class="pill" id="cartCount">0</span>
+        </div>
+    </header>    
+    <main class="produto">
+        <section id="produtos">
+            <img src="img/cor verde.jpg">
+            <div class="descricao-livro">
+                <h2>Kindle</h2>
+                <hr>
+                    <h3>O que você precisa saber sobre este produto!</h3>
+                    <p>O Kindle é um leitor de livros digitais, com tela e-ink que simula a aparência do papel, sendo confortável para os olhos e com bateria de longa duração. 
+                    <p>Ele permite armazenar e ler milhares de livros digitais, além de acessar a livraria,  marcar páginas, fazer anotações e personalizar a leitura ajustando fontes e temas.</p> 
+                    <p>Existem diferentes modelos, como o Kindle básico, que oferecem variações em recursos como tela, armazenamento e design.</p>
+            </div>
+            <div class="compra">
+                <input id="qtd" type="number" min="1" max="9" required></inputid>
+                <p>R$ <span id="preco">600.00</span></p>
+                <button id="addToCart">Comprar!</button>
+            </div>
+        </section>
+    </main>
+    <div id="carrinhoLateral" class="carrinho">
+        <div id="conteudoCarrinho"></div>
+        <p class="total">Total: R$ <span id="totalCarrinho">0.00</span></p>
+        <button id="finalizarCompra" class="btn-finalizar">Finalizar Compra</button>
+    </div>
+    <footer>
+
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
