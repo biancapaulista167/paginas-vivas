@@ -1,0 +1,507 @@
+/* ============================================================
+   PÁGINAS VIVAS - FOLHA DE ESTILO ÚNICA (COM MODO ESCURO NATIVO)
+   ============================================================ */
+
+/* Fonte serifada usada apenas nos títulos do Painel do Usuário */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&display=swap');
+
+/* --- Variáveis Globais de Cores (MODO CLARO) --- */
+:root {
+  /* Cores Principais */
+  --roxo-escuro: #4a2e7a;
+  --roxo-primario: #7c5cbf;
+  --roxo-suave: #d8cce8;
+  --rosa-primario: #e09fbc;
+  --rosa-hover: #d1789d;
+  --rosa-suave: #f7d6e6;
+  
+  /* Fundos e Estrutura */
+  --fundo-pagina: #fcf9fc;
+  --card-bg: #ffffff;
+  --bg-input: #ffffff;
+  --borda-clara: #eeeeee;
+  --sombra-card: 0 4px 12px rgba(124, 92, 191, 0.08);
+
+  /* Textos */
+  --texto: #333333;
+  --texto-suave: #666666;
+
+  /* Alertas e Botões */
+  --estrela-amarela: #f39c12;
+  --verde: #27ae60;
+  --verde-hover: #219653;
+  --vermelho: #c0392b;
+  --vermelho-claro: #e74c3c;
+  --laranja: #e67e22;
+  --azul: #3498db;
+  --cinza: #7f8c8d;
+  --cinza-escuro: #2c3e50;
+
+  /* Cores Específicas de Status */
+  --dourado: #c9973f;
+  --dourado-suave: #f6ead2;
+  --badge-enviado-bg: #dceafb;
+  --badge-enviado-txt: #2f6fb0;
+  --badge-entregue-bg: #dcf3e6;
+  --badge-entregue-txt: #219653;
+  --badge-cancelado-bg: #fbdedb;
+  --badge-cancelado-txt: #c0392b;
+  --badge-outro-bg: #ececec;
+  --badge-outro-txt: #7f8c8d;
+}
+
+/* --- Variáveis Globais de Cores (MODO ESCURO) --- */
+body.dark-mode {
+  /* Roxo escuro profundo, rosa e branco para destacar os textos */
+  --roxo-escuro: #fce4ec; /* Rosa quase branco para Títulos */
+  --roxo-primario: #b395e8; /* Roxo vibrante */
+  --roxo-suave: #2a164d; /* Roxo escuro para detalhes/badges */
+  --rosa-primario: #e07aa9;
+  --rosa-hover: #f06292;
+  --rosa-suave: #2d1b4e;
+  
+  /* Fundos (Roxo muito escuro) */
+  --fundo-pagina: #14081c; 
+  --card-bg: #1e102e; 
+  --bg-input: #14081c;
+  --borda-clara: #3a205e;
+  --sombra-card: 0 4px 15px rgba(0, 0, 0, 0.4);
+
+  /* Textos */
+  --texto: #ffffff; /* Branco absoluto para leitura */
+  --texto-suave: #d8cce8; /* Roxo claro para descrições */
+
+  /* Alertas e Botões no Escuro */
+  --cinza-escuro: #eaddf5;
+  --dourado-suave: rgba(201, 151, 63, 0.15);
+  --badge-enviado-bg: rgba(47, 111, 176, 0.2);
+  --badge-enviado-txt: #6cb0f9;
+  --badge-entregue-bg: rgba(39, 174, 96, 0.2);
+  --badge-entregue-txt: #6ae39c;
+  --badge-cancelado-bg: rgba(192, 57, 43, 0.2);
+  --badge-cancelado-txt: #ff7669;
+  --badge-outro-bg: #361b4d;
+  --badge-outro-txt: #a89fbf;
+}
+
+/* --- Reset e Estilos Gerais --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--fundo-pagina);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+/* Adicionando transição suave para as trocas de cor do modo escuro */
+body, .admin-card, .book-card, .checkout-card, .review-form, .cart-table, .auth-card, input, select, textarea, .nav-tabs .nav-link, .stat-pill, .payment-option, .main-header, .main-footer {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* --- Utilitários --- */
+.is-hidden { display: none !important; }
+.divider { margin: 40px 0; border: 0; border-top: 1px solid var(--borda-clara); }
+.text-success-custom { color: var(--verde); font-weight: bold; }
+.text-danger-custom { color: var(--vermelho); }
+.text-warning-custom { color: var(--laranja); font-weight: bold; }
+.empty-message { color: var(--texto-suave); }
+
+/* --- Containers e Cartões --- */
+.admin-container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+.admin-card { background: var(--card-bg); padding: 25px; border-radius: 8px; box-shadow: var(--sombra-card); }
+.catalog-container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+
+/* --- Cabeçalho --- */
+.main-header {
+  background: linear-gradient(135deg, var(--rosa-suave), var(--roxo-suave));
+  border-bottom: 2px solid var(--rosa-primario);
+  padding: 15px 30px;
+}
+.header-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.logo { display: inline-flex; align-items: center; gap: 10px; font-size: 1.6rem; font-weight: 700; color: var(--roxo-escuro); text-decoration: none; }
+.logo img { display: block; object-fit: contain; }
+.search-form input {
+  padding: 8px 15px; border: 1px solid var(--rosa-primario); border-radius: 20px;
+  outline: none; background-color: var(--bg-input); color: var(--texto);
+}
+.search-form button { background-color: var(--rosa-primario); border: none; color: white; padding: 8px 15px; border-radius: 20px; cursor: pointer; }
+.user-nav a { margin-left: 12px; text-decoration: none; color: var(--roxo-escuro); font-weight: 600; }
+.btn-login, .btn-register { background-color: var(--rosa-primario); color: white !important; padding: 8px 16px; border-radius: 20px; }
+
+/* --- Formulários Genéricos --- */
+.form-field-wrapper { margin-bottom: 15px; }
+.form-field-wrapper label { display: block; font-weight: 600; margin-bottom: 6px; color: var(--roxo-escuro); }
+.form-control-custom {
+  width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--rosa-primario);
+  background-color: var(--bg-input); color: var(--texto); font-family: inherit; outline: none;
+}
+.form-control-custom:focus { border-color: var(--roxo-primario); box-shadow: 0 0 0 3px var(--roxo-suave); }
+
+/* --- Cabeçalho do Catálogo e Filtros --- */
+.catalog-header-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 25px; }
+.search-filter-form { display: flex; align-items: center; gap: 10px; }
+.filter-label { font-weight: 600; white-space: nowrap; color: var(--texto); }
+.filter-select {
+  padding: 8px 12px; border-radius: 6px; border: 1px solid var(--rosa-primario);
+  cursor: pointer; background: var(--bg-input); color: var(--texto);
+}
+
+/* --- Grade de Livros --- */
+.books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 25px; margin-top: 20px; }
+.book-card {
+  background-color: var(--card-bg); border-radius: 12px; border: 1px solid var(--borda-clara);
+  box-shadow: var(--sombra-card); overflow: hidden; display: flex; flex-direction: column;
+}
+.book-cover { width: 100%; height: 280px; object-fit: cover; }
+.book-info { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
+.category-badge { background-color: var(--roxo-suave); color: var(--roxo-escuro); font-size: 0.75rem; padding: 3px 8px; border-radius: 10px; width: fit-content; font-weight: 600; }
+.book-info h3 { font-size: 1.1rem; margin: 8px 0 4px 0; color: var(--roxo-escuro); }
+.author { color: var(--texto-suave); font-size: 0.85rem; margin-bottom: 8px; }
+.rating-display { color: var(--estrela-amarela); font-weight: 600; margin-bottom: 12px; }
+.rating-count { color: var(--texto-suave); font-size: 0.8rem; }
+.book-footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
+.price { font-size: 1.2rem; font-weight: 700; color: var(--roxo-escuro); }
+.btn-details { background-color: var(--rosa-primario); color: white; text-decoration: none; padding: 6px 14px; border-radius: 15px; font-size: 0.85rem; font-weight: 600; border: none; cursor: pointer; display: inline-block; width: 100%; text-align: center;}
+.btn-details:hover { background-color: var(--rosa-hover); }
+.btn-details-lg { padding: 12px 25px; font-size: 1rem; }
+
+/* ============================================================
+   DETALHES DO LIVRO (livro.php)
+   ============================================================ */
+.book-detail-wrapper { display: flex; gap: 30px; flex-wrap: wrap; margin-bottom: 40px; }
+.book-detail-cover { flex: 1; max-width: 320px; }
+.book-detail-cover img { width: 100%; border-radius: 8px; box-shadow: var(--sombra-card); }
+.book-detail-info { flex: 2; min-width: 300px; }
+.book-detail-title { margin-top: 10px; color: var(--roxo-escuro); }
+.book-detail-author { font-size: 1.1rem; color: var(--texto-suave); }
+.book-detail-rating { margin: 15px 0; }
+.book-detail-rating .stars { color: var(--estrela-amarela); font-size: 1.2rem; }
+.book-meta-list { list-style: none; padding: 0; margin-bottom: 20px; line-height: 1.8; color: var(--texto); }
+.format-selector { margin: 20px 0; }
+.format-selector-title { display: block; font-weight: bold; margin-bottom: 10px; color: var(--texto); }
+.format-options { display: flex; gap: 15px; flex-wrap: wrap; }
+.format-option-label {
+  border: 2px solid var(--borda-clara); padding: 12px; border-radius: 8px; cursor: pointer; flex: 1;
+  min-width: 120px; text-align: center; background: var(--card-bg); color: var(--texto); transition: border-color 0.2s;
+}
+.format-option-label:hover { border-color: var(--rosa-primario); }
+.format-option-label input[type="radio"] { margin-bottom: 5px; }
+.format-price { color: var(--roxo-primario); font-weight: bold; margin: 5px 0; }
+.stock-warning { color: var(--laranja); font-size: 0.8rem; font-weight: bold; }
+.stock-empty { color: var(--vermelho-claro); font-size: 0.8rem; font-weight: bold; }
+.book-actions { display: flex; gap: 15px; align-items: center; margin-top: 20px; }
+
+.btn-fav { background-color: var(--roxo-suave); text-decoration: none; color: var(--roxo-escuro); padding: 12px 25px; border-radius: 15px; font-weight: bold; }
+.btn-fav:hover { background-color: var(--borda-clara); }
+.btn-fav.is-favoritado { background-color: var(--vermelho-claro); color: white; }
+.btn-fav.is-favoritado:hover { background-color: var(--vermelho); }
+
+.description-section { margin-bottom: 40px; }
+.description-text { line-height: 1.6; color: var(--texto); }
+
+/* --- Avaliações --- */
+.review-form { background: var(--card-bg); padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px solid var(--borda-clara); }
+.review-form-block { margin-bottom: 15px; }
+.review-form-label { display: block; font-weight: bold; margin-bottom: 8px; color: var(--texto); }
+.review-textarea {
+  width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--borda-clara);
+  background: var(--bg-input); color: var(--texto); font-family: inherit; resize: vertical;
+}
+.review-login-note { margin: 20px 0; color: var(--texto); }
+.star-rating { display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 5px; }
+.star-rating input { display: none; }
+.star-rating label { font-size: 1.8rem; color: var(--borda-clara); cursor: pointer; transition: color 0.2s; }
+.star-rating input:checked ~ label, .star-rating label:hover, .star-rating label:hover ~ label { color: var(--estrela-amarela); }
+.reviews-list { margin-top: 30px; }
+.review-card { border-bottom: 1px solid var(--borda-clara); padding: 15px 0; }
+.review-moderation-note { color: var(--dourado); font-style: italic; background: var(--dourado-suave); padding: 10px; border-radius: 6px; margin: 0; }
+.review-header { display: flex; justify-content: space-between; align-items: center; }
+.review-stars { color: var(--estrela-amarela); }
+.review-text { margin: 10px 0; color: var(--texto); }
+.review-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+.review-date, .review-likes-count { color: var(--texto-suave); }
+.review-actions { display: flex; gap: 10px; }
+.btn-like, .btn-report { padding: 5px 10px; border-radius: 4px; text-decoration: none; font-size: 0.85rem; border: 1px solid var(--borda-clara); background: var(--bg-input); color: var(--texto); }
+.btn-like.is-ativo { background: var(--azul); color: #fff; border-color: var(--azul); }
+.btn-report { color: var(--vermelho-claro); border-color: var(--vermelho-claro); }
+
+/* --- Toast de notificação --- */
+.custom-toast {
+  position: fixed; bottom: 30px; right: 30px; background: var(--roxo-escuro); color: var(--fundo-pagina);
+  padding: 15px 25px; border-radius: 8px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); z-index: 9999; font-weight: 500;
+  opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease; pointer-events: none;
+}
+.custom-toast.show { opacity: 1; transform: translateY(0); }
+.custom-toast.success { background: var(--verde); color: white; }
+.custom-toast.error { background: var(--vermelho); color: white; }
+
+/* ============================================================
+   CARRINHO (carrinho.php)
+   ============================================================ */
+.cart-container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+.cart-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; background: var(--card-bg); border-radius: 8px; overflow: hidden; box-shadow: var(--sombra-card); }
+.cart-table th, .cart-table td { padding: 15px; text-align: left; border-bottom: 1px solid var(--borda-clara); color: var(--texto); }
+.cart-table th { background: var(--fundo-pagina); color: var(--cinza-escuro); font-weight: 600; }
+.cart-product-cell { display: flex; align-items: center; gap: 15px; }
+.cart-table td img { width: 60px; height: 80px; object-fit: cover; border-radius: 4px; }
+.qty-input-group { display: flex; align-items: center; gap: 8px; }
+.qty-btn { background: var(--borda-clara); color: var(--texto); border: none; width: 30px; height: 30px; border-radius: 4px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+.qty-btn:hover { background: var(--roxo-suave); }
+.qty-display { width: 40px; text-align: center; font-weight: 600; color: var(--texto); }
+.btn-remove { background: none; border: none; color: var(--vermelho-claro); cursor: pointer; font-weight: 600; }
+.btn-remove:hover { text-decoration: underline; }
+.cart-summary { background: var(--card-bg); padding: 25px; border-radius: 8px; box-shadow: var(--sombra-card); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+.cart-summary h3 { margin: 0; color: var(--cinza-escuro); }
+.cart-total-value { color: var(--verde); }
+.checkout-actions { display: flex; gap: 15px; }
+.btn-checkout { background: var(--verde); color: white; padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: background 0.2s; display: inline-block; }
+.btn-checkout:hover { background: var(--verde-hover); }
+.btn-continue { background: var(--roxo-suave); color: var(--roxo-escuro); padding: 12px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-block; }
+.btn-continue:hover { background: var(--borda-clara); }
+.cart-empty-box { text-align: center; padding: 50px 0; background: var(--card-bg); border-radius: 8px; box-shadow: var(--sombra-card); }
+.cart-empty-text { font-size: 1.2rem; color: var(--texto-suave); margin-bottom: 20px; }
+
+/* ============================================================
+   CHECKOUT (checkout.php)
+   ============================================================ */
+.checkout-container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+.checkout-grid { display: grid; grid-template-columns: 1fr 380px; gap: 30px; }
+.checkout-card { background: var(--card-bg); padding: 25px; border-radius: 8px; box-shadow: var(--sombra-card); margin-bottom: 20px; }
+.checkout-card h3 { margin-top: 0; margin-bottom: 20px; color: var(--roxo-escuro); font-size: 1.2rem; border-bottom: 2px solid var(--borda-clara); padding-bottom: 10px; }
+.address-text { margin: 0 0 10px 0; color: var(--texto); }
+.address-link { font-size: 0.9rem; color: var(--azul); }
+.address-warning { background: var(--dourado-suave); color: var(--dourado); padding: 15px; border-radius: 6px; margin-bottom: 15px; }
+.payment-option { display: flex; align-items: center; gap: 12px; padding: 12px 15px; border: 2px solid var(--borda-clara); background: var(--bg-input); border-radius: 6px; margin-bottom: 12px; cursor: pointer; transition: border-color 0.2s; color: var(--texto); }
+.payment-option:hover { border-color: var(--roxo-primario); }
+.payment-option--stacked { flex-direction: column; align-items: stretch; }
+.payment-option-row { display: flex; align-items: center; gap: 12px; }
+.payment-tag-success { color: var(--verde); font-weight: bold; font-size: 0.85rem; }
+.payment-tag-muted { color: var(--texto-suave); font-size: 0.85rem; }
+.installments-box { margin-top: 10px; padding-left: 25px; }
+.installments-label { font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: 5px; color: var(--texto); }
+.installments-select { width: 100%; padding: 8px; border-radius: 4px; border: 1px solid var(--borda-clara); background: var(--bg-input); color: var(--texto); }
+.summary-line { display: flex; justify-content: space-between; margin-bottom: 12px; color: var(--texto-suave); }
+.summary-line.total { font-size: 1.2rem; font-weight: bold; color: var(--roxo-escuro); border-top: 1px solid var(--borda-clara); padding-top: 15px; margin-top: 15px; }
+.summary-line.discount { color: var(--verde); }
+.summary-line.interest { color: var(--vermelho); }
+.btn-finalizar { background: var(--verde); color: white; width: 100%; padding: 14px; border: none; border-radius: 6px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background 0.2s; margin-top: 20px; }
+.btn-finalizar:hover { background: var(--verde-hover); }
+
+/* ============================================================
+   CADASTRO DE LIVRO (cadastro_livro.php)
+   ============================================================ */
+.form-page-container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+.book-form { background: var(--card-bg); padding: 25px; border-radius: 8px; box-shadow: var(--sombra-card); }
+.book-form-group { margin-bottom: 15px; }
+.book-form-group label { display: block; margin-bottom: 5px; color: var(--texto); }
+.book-form-input, .book-form-textarea { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--borda-clara); background: var(--bg-input); color: var(--texto); font-family: inherit; }
+.book-form-textarea { resize: vertical; }
+.genres-group { margin-bottom: 20px; color: var(--texto); }
+.genres-box { max-height: 220px; overflow-y: auto; border: 1px solid var(--borda-clara); padding: 12px; border-radius: 6px; background: var(--fundo-pagina); display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-top: 8px; }
+.genre-item { cursor: pointer; font-size: 0.9rem; display: flex; align-items: center; gap: 6px; color: var(--texto); }
+.new-genre-input { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--borda-clara); background: var(--bg-input); color: var(--texto); margin-top: 10px; }
+.form-divider { margin: 30px 0; border: 0; border-top: 1px solid var(--borda-clara); }
+.form-hint { font-size: 0.9rem; color: var(--texto-suave); }
+.format-box { background: var(--fundo-pagina); padding: 15px; border-radius: 6px; margin-bottom: 15px; border: 1px solid var(--borda-clara); color: var(--texto); }
+.format-box--last { margin-bottom: 25px; }
+.format-box-toggle { cursor: pointer; }
+.format-box-fields { margin-top: 10px; }
+.format-box-row { display: flex; gap: 10px; }
+.format-input, .format-input--inline { width: 100%; padding: 8px; border-radius: 4px; border: 1px solid var(--borda-clara); background: var(--bg-input); color: var(--texto); }
+.format-input--inline { flex: 1; }
+.btn-submit-dark { padding: 12px 25px; font-size: 1rem; background: var(--roxo-primario); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.btn-submit-dark:hover { background: var(--roxo-escuro); }
+
+/* ============================================================
+   PAINEL DO USUÁRIO (painel.php)
+   ============================================================ */
+.user-panel { max-width: 1000px; }
+.user-panel h2, .user-panel h4, .panel-greeting-name { font-family: 'Fraunces', Georgia, 'Times New Roman', serif; }
+
+/* --- Hero de boas-vindas --- */
+.panel-hero { background: linear-gradient(135deg, var(--rosa-suave), var(--roxo-suave)); border-radius: 16px; padding: 30px 35px; margin-bottom: 30px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; }
+.panel-hero-title { font-size: 1.8rem; font-weight: 600; color: var(--roxo-escuro); margin-bottom: 4px; }
+.panel-hero-subtitle { color: var(--texto-suave); font-size: 0.95rem; }
+.panel-role-tag { display: inline-block; margin-left: 8px; padding: 3px 10px; border-radius: 20px; background: var(--roxo-primario); color: #fff; font-size: 0.7rem; font-weight: 600; vertical-align: middle; }
+.panel-stats { display: flex; gap: 14px; flex-wrap: wrap; }
+.stat-pill { background: var(--card-bg); border: 1px solid var(--borda-clara); border-radius: 12px; padding: 10px 20px; text-align: center; min-width: 110px; }
+.stat-pill-number { display: block; font-family: 'Fraunces', Georgia, serif; font-size: 1.5rem; font-weight: 600; color: var(--roxo-escuro); line-height: 1.2; }
+.stat-pill-label { font-size: 0.75rem; color: var(--texto-suave); }
+
+/* --- Abas --- */
+.user-panel .nav-tabs { border-bottom: 1px solid var(--borda-clara); gap: 6px; flex-wrap: wrap; }
+.user-panel .nav-tabs .nav-link { border: none; border-radius: 10px 10px 0 0; padding: 10px 18px; font-weight: 600; font-size: 0.92rem; color: var(--texto-suave); background: transparent; cursor: pointer; }
+.user-panel .nav-tabs .nav-link:hover { color: var(--roxo-escuro); background: var(--rosa-suave); }
+.user-panel .nav-tabs .nav-link.active { color: var(--roxo-escuro); background: var(--card-bg); box-shadow: inset 0 -3px 0 var(--roxo-primario); }
+
+/* --- Estado vazio --- */
+.panel-empty-state { background: var(--card-bg); border: 1px dashed var(--borda-clara); border-radius: 12px; padding: 40px 20px; text-align: center; color: var(--texto-suave); }
+
+/* --- Aba: Minhas Compras --- */
+.orders-table-wrapper { background: var(--card-bg); border-radius: 12px; box-shadow: var(--sombra-card); overflow: hidden; }
+.orders-table { width: 100%; border-collapse: collapse; }
+.orders-table th { text-align: left; padding: 14px 18px; background: var(--roxo-suave); color: var(--roxo-escuro); font-size: 0.8rem; text-transform: none; border-bottom: 1px solid var(--borda-clara); }
+.orders-table td { padding: 14px 18px; border-bottom: 1px solid var(--borda-clara); font-size: 0.9rem; vertical-align: middle; color: var(--texto); }
+.orders-table tr:last-child td { border-bottom: none; }
+.order-id { color: var(--texto-suave); font-size: 0.85rem; }
+.order-books { color: var(--texto); max-width: 340px; }
+.order-total { font-weight: 700; color: var(--roxo-escuro); }
+
+/* --- Badges de Status --- */
+.status-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; white-space: nowrap; }
+.status-badge--pendente, .status-badge--processando { background: var(--dourado-suave); color: var(--dourado); }
+.status-badge--enviado { background: var(--badge-enviado-bg); color: var(--badge-enviado-txt); }
+.status-badge--entregue { background: var(--badge-entregue-bg); color: var(--badge-entregue-txt); }
+.status-badge--cancelado { background: var(--badge-cancelado-bg); color: var(--badge-cancelado-txt); }
+.status-badge--outro { background: var(--badge-outro-bg); color: var(--badge-outro-txt); }
+
+/* --- Aba: Favoritos --- */
+.favorites-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 20px; }
+.fav-card { background: var(--card-bg); border-radius: 12px; border: 1px solid var(--rosa-suave); box-shadow: var(--sombra-card); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.fav-card:hover { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(124, 92, 191, 0.16); }
+.fav-card-cover { width: 100%; height: 200px; object-fit: cover; }
+.fav-card-body { padding: 12px 14px 16px; display: flex; flex-direction: column; flex-grow: 1; }
+.fav-card-title { font-size: 0.9rem; font-weight: 600; color: var(--texto); margin-bottom: 4px; line-height: 1.3; }
+.fav-card-price { font-size: 0.82rem; color: var(--texto-suave); margin-bottom: 12px; }
+.fav-card-link { margin-top: auto; text-align: center; padding: 7px 0; border-radius: 20px; border: 1px solid var(--roxo-primario); color: var(--roxo-primario); text-decoration: none; font-size: 0.82rem; font-weight: 600; transition: background 0.15s ease, color 0.15s ease; }
+.fav-card-link:hover { background: var(--roxo-primario); color: #fff; }
+
+/* --- Aba: Moderação --- */
+.moderation-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 20px; }
+.moderation-count { color: var(--texto-suave); font-size: 0.9rem; }
+.moderation-list { display: flex; flex-direction: column; gap: 14px; }
+.moderation-item { background: var(--card-bg); border-radius: 10px; border-left: 4px solid var(--dourado); box-shadow: var(--sombra-card); padding: 16px 20px; }
+.moderation-item-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.moderation-book { font-weight: 700; color: var(--roxo-escuro); }
+.moderation-user { font-size: 0.82rem; color: var(--texto-suave); }
+.moderation-comment { color: var(--texto); font-size: 0.92rem; line-height: 1.5; margin-bottom: 14px; }
+.moderation-actions { display: flex; gap: 10px; }
+.btn-mod-approve, .btn-mod-delete { padding: 7px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; text-decoration: none; border: 1px solid transparent; }
+.btn-mod-approve { background: var(--verde); color: #fff; }
+.btn-mod-approve:hover { background: var(--verde-hover); }
+.btn-mod-delete { background: var(--card-bg); color: var(--vermelho); border-color: var(--vermelho); }
+.btn-mod-delete:hover { background: var(--vermelho); color: #fff; }
+
+/* ============================================================
+   AUTENTICAÇÃO (login / cadastro / recuperar senha)
+   ============================================================ */
+.auth-container { display: flex; justify-content: center; align-items: center; padding: 40px 20px; }
+.auth-card { background: var(--card-bg); border: 1px solid var(--borda-clara); border-radius: 16px; box-shadow: var(--sombra-card); width: 100%; max-width: 420px; padding: 30px; text-align: center; }
+.auth-card h2 { color: var(--roxo-escuro); margin-bottom: 6px; }
+.auth-card p { color: var(--texto-suave); font-size: 0.9rem; margin-bottom: 20px; }
+.auth-form { display: flex; flex-direction: column; gap: 15px; text-align: left; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 0.85rem; font-weight: 600; color: var(--roxo-escuro); }
+.form-group input { padding: 10px 14px; border: 1px solid var(--borda-clara); border-radius: 10px; font-size: 0.95rem; outline: none; background-color: var(--bg-input); color: var(--texto); }
+.form-group input:focus { border-color: var(--roxo-primario); box-shadow: 0 0 0 3px var(--roxo-suave); }
+.form-group select { padding: 10px 14px; border: 1px solid var(--borda-clara); border-radius: 10px; font-size: 0.95rem; outline: none; background-color: var(--bg-input); color: var(--texto); font-family: inherit; }
+.form-group select:focus { border-color: var(--roxo-primario); box-shadow: 0 0 0 3px var(--roxo-suave); }
+.btn-auth { background: linear-gradient(135deg, var(--rosa-primario), var(--roxo-primario)); color: white; border: none; padding: 12px; border-radius: 25px; font-weight: 700; font-size: 1rem; cursor: pointer; margin-top: 10px; transition: opacity 0.2s ease; }
+.btn-auth:hover { opacity: 0.9; }
+.auth-footer { margin-top: 20px; font-size: 0.85rem; color: var(--texto); }
+.auth-footer a { color: var(--roxo-primario); font-weight: 600; text-decoration: none; }
+.forgot-password-link { font-size: 0.8rem; color: var(--roxo-primario); text-decoration: none; align-self: flex-end; margin-top: 2px; }
+.forgot-password-link:hover { text-decoration: underline; }
+
+/* --- Alertas --- */
+.alert { padding: 10px 14px; border-radius: 8px; font-size: 0.85rem; margin-bottom: 15px; text-align: center; }
+.alert-erro { background-color: var(--badge-cancelado-bg); color: var(--badge-cancelado-txt); border: 1px solid var(--vermelho); }
+.alert-sucesso { background-color: var(--badge-entregue-bg); color: var(--badge-entregue-txt); border: 1px solid var(--verde); }
+
+/* ============================================================
+   RODAPÉ (Footer)
+   ============================================================ */
+.main-footer {
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 50px;
+  background-color: var(--card-bg);
+  border-top: 1px solid var(--borda-clara);
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+/* ============================================================
+   RESPONSIVIDADE (MOBILE & TABLET)
+   ============================================================ */
+@media (max-width: 768px) {
+  /* --- Cabeçalho --- */
+  .header-container {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .search-form {
+    display: flex;
+    width: 100%;
+  }
+
+  .search-form input {
+    flex: 1; /* Ocupa o máximo de espaço possível */
+    border-radius: 20px 0 0 20px; /* Alinha perfeitamente com o botão */
+  }
+
+  .search-form button {
+    border-radius: 0 20px 20px 0; /* Alinha com o input */
+  }
+
+  .user-nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 15px !important; /* Força sobrescrever o style inline do header.php */
+  }
+
+  /* --- Detalhes do Livro (livro.php) --- */
+  .book-detail-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .book-detail-cover {
+    max-width: 260px; /* Tamanho perfeito para a capa no telemóvel */
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .book-detail-info {
+    min-width: 100%;
+    text-align: center; /* Centraliza o texto no telemóvel */
+  }
+  
+  .book-meta-list {
+    text-align: left; /* Mantém a lista alinhada à esquerda para facilitar a leitura */
+    display: inline-block;
+  }
+
+  /* --- Checkout --- */
+  .checkout-grid { 
+    grid-template-columns: 1fr; 
+  }
+}
+
+@media (max-width: 640px) {
+  /* --- Painel --- */
+  .panel-hero { padding: 22px; flex-direction: column; text-align: center; }
+  .panel-stats { justify-content: center; width: 100%; }
+  .orders-table-wrapper { overflow-x: auto; }
+  .orders-table { min-width: 560px; }
+}
+
+@media (max-width: 480px) {
+  /* --- Detalhes do Livro & Grades menores --- */
+  .books-grid, .favorites-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .format-options {
+    flex-direction: column;
+  }
+}
